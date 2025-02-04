@@ -51,12 +51,12 @@ p {
             string rich_text;
             if (send_mail_s.Result)
             {
-                rich_text = "<h3>פנייתך התקבלה בהצלחה</h3>\r\n<p>נציגנו יתפנו בהקדם ויטפלו בבקשתכם</p>"
+                rich_text = "<h3>פנייתך התקבלה בהצלחה</h3>\r\n<p>נציגנו יתפנו בהקדם ויטפלו בבקשתכם</p>";
                 return Ok(new { success = true, message = rich_text });
             }
             else
             {
-                rich_text = "<h3 style=\"color: red;\">פנייתך נכשלה</h3>\r\n<p>אנא נסה שוב מאוחר יותר</p>"
+                rich_text = "<h3 style=\"color: red;\">פנייתך נכשלה</h3>\r\n<p>אנא נסה שוב מאוחר יותר</p>";
                 return StatusCode(400, new { error = false, message = rich_text });
             }
      

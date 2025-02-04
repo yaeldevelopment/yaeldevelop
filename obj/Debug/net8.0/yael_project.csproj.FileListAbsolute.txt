@@ -1222,16 +1222,16 @@ C:\Users\user1\Desktop\Year_b\umbraco\yael_umbraco\yael_project\obj\Debug\net8.0
 C:\Users\user1\Desktop\Year_b\yael_umbraco\yael_project\bin\Debug\net8.0\appsettings-schema.json
 C:\Users\user1\Desktop\Year_b\yael_umbraco\yael_project\bin\Debug\net8.0\appsettings-schema.Umbraco.Cms.json
 C:\Users\user1\Desktop\Year_b\yael_umbraco\yael_project\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\user1\Desktop\Year_b\yael_umbraco\yael_project\bin\Debug\net8.0\appsettings.json
 C:\Users\user1\Desktop\Year_b\yael_umbraco\yael_project\bin\Debug\net8.0\global.json
+C:\Users\user1\Desktop\Year_b\yael_umbraco\yael_project\bin\Debug\net8.0\yael_project.staticwebassets.runtime.json
+C:\Users\user1\Desktop\Year_b\yael_umbraco\yael_project\bin\Debug\net8.0\yael_project.staticwebassets.endpoints.json
 C:\Users\user1\Desktop\Year_b\yael_umbraco\yael_project\bin\Debug\net8.0\App_Plugins\AllinOneAccessibility\Css\animateonscroll.css
 C:\Users\user1\Desktop\Year_b\yael_umbraco\yael_project\bin\Debug\net8.0\App_Plugins\AllinOneAccessibility\Js\editor.controller.js
 C:\Users\user1\Desktop\Year_b\yael_umbraco\yael_project\bin\Debug\net8.0\App_Plugins\AllinOneAccessibility\package.manifest
 C:\Users\user1\Desktop\Year_b\yael_umbraco\yael_project\bin\Debug\net8.0\App_Plugins\AllinOneAccessibility\Vendor\aos\aos-2.3.4.css
 C:\Users\user1\Desktop\Year_b\yael_umbraco\yael_project\bin\Debug\net8.0\App_Plugins\AllinOneAccessibility\Vendor\aos\aos-2.3.4.js
 C:\Users\user1\Desktop\Year_b\yael_umbraco\yael_project\bin\Debug\net8.0\App_Plugins\AllinOneAccessibility\Views\editor.html
-C:\Users\user1\Desktop\Year_b\yael_umbraco\yael_project\bin\Debug\net8.0\appsettings.json
-C:\Users\user1\Desktop\Year_b\yael_umbraco\yael_project\bin\Debug\net8.0\yael_project.staticwebassets.runtime.json
-C:\Users\user1\Desktop\Year_b\yael_umbraco\yael_project\bin\Debug\net8.0\yael_project.staticwebassets.endpoints.json
 C:\Users\user1\Desktop\Year_b\yael_umbraco\yael_project\bin\Debug\net8.0\yael_project.exe
 C:\Users\user1\Desktop\Year_b\yael_umbraco\yael_project\bin\Debug\net8.0\yael_project.deps.json
 C:\Users\user1\Desktop\Year_b\yael_umbraco\yael_project\bin\Debug\net8.0\yael_project.runtimeconfig.json
@@ -1610,7 +1610,6 @@ C:\Users\user1\Desktop\Year_b\yael_umbraco\yael_project\bin\Debug\net8.0\MiniPro
 C:\Users\user1\Desktop\Year_b\yael_umbraco\yael_project\bin\Debug\net8.0\MiniProfiler.AspNetCore.Mvc.dll
 C:\Users\user1\Desktop\Year_b\yael_umbraco\yael_project\bin\Debug\net8.0\MiniProfiler.Shared.dll
 C:\Users\user1\Desktop\Year_b\yael_umbraco\yael_project\bin\Debug\net8.0\MySql.Data.dll
-C:\Users\user1\Desktop\Year_b\yael_umbraco\yael_project\bin\Debug\net8.0\MySqlConnector.dll
 C:\Users\user1\Desktop\Year_b\yael_umbraco\yael_project\bin\Debug\net8.0\NCrontab.dll
 C:\Users\user1\Desktop\Year_b\yael_umbraco\yael_project\bin\Debug\net8.0\Newtonsoft.Json.dll
 C:\Users\user1\Desktop\Year_b\yael_umbraco\yael_project\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
@@ -1637,7 +1636,6 @@ C:\Users\user1\Desktop\Year_b\yael_umbraco\yael_project\bin\Debug\net8.0\OpenIdd
 C:\Users\user1\Desktop\Year_b\yael_umbraco\yael_project\bin\Debug\net8.0\OpenIddict.Validation.SystemNetHttp.dll
 C:\Users\user1\Desktop\Year_b\yael_umbraco\yael_project\bin\Debug\net8.0\Polly.dll
 C:\Users\user1\Desktop\Year_b\yael_umbraco\yael_project\bin\Debug\net8.0\Polly.Extensions.Http.dll
-C:\Users\user1\Desktop\Year_b\yael_umbraco\yael_project\bin\Debug\net8.0\Pomelo.EntityFrameworkCore.MySql.dll
 C:\Users\user1\Desktop\Year_b\yael_umbraco\yael_project\bin\Debug\net8.0\Serilog.dll
 C:\Users\user1\Desktop\Year_b\yael_umbraco\yael_project\bin\Debug\net8.0\Serilog.AspNetCore.dll
 C:\Users\user1\Desktop\Year_b\yael_umbraco\yael_project\bin\Debug\net8.0\Serilog.Enrichers.Process.dll
