@@ -1,0 +1,99 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@using System.Collections
+@using Newtonsoft.Json
+@using Umbraco.Cms.Core.Models.Blocks
+@using Umbraco.Cms.Core.Models.PublishedContent
+@using Umbraco.Cms.Core.Services
+@using Umbraco.Cms.Core.Web
+@using Umbraco.Cms.Web.Common.PublishedModels
+@using System.Collections.Generic
+@using Umbraco.Cms.Web.Common.UmbracoContext
+@using yael_project.Models
+@inject IUmbracoContextFactory UmbracoContextFactory
+    @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+    @inject IContentService ContentService
+    @inject IMediaService MediaService
+
+
+                <header>
+                    <div class="hamburger-menu">
+                        <input type="checkbox" id="menu-toggle">
+                        <label for="menu-toggle" class="menu-icon">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </label>
+                        <nav class="menu header_list container">
+
+                            <a id="logo" href="/"><img src="https://res.cloudinary.com/dv3ucnxsv/image/upload/v1738519455/aufdhkro5av0wjnnodzc.jpg" alt="לוגו"></a>
+                            <ul>
+
+
+
+                                <li class="link ">
+                                    <a href="/">
+
+                                        בית
+                                    </a>
+
+                                </li>
+
+
+
+
+                            </ul>
+                            <ul>
+
+
+
+                                <li class="link ">
+                                    <a href="/אתרים-לדוגמא/">
+
+                                        אתרים לדוגמא
+                                    </a>
+
+                                </li>
+
+
+
+
+                            </ul>
+                            <ul>
+
+
+
+                                <li class="link ">
+                                    <a href="/אודות/">
+
+                                        אודות
+                                    </a>
+
+                                </li>
+
+
+
+
+                            </ul>
+                            <ul>
+
+
+
+                                <li class="link ">
+                                    <a href="/צור-קשר/">
+
+                                        צור קשר
+                                    </a>
+
+                                </li>
+
+
+
+
+                            </ul>
+                        </nav>
+                    </div>
+                </header>
+
+

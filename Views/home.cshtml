@@ -1,0 +1,278 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using System.Collections
+@using Newtonsoft.Json
+@using Umbraco.Cms.Core.Models.Blocks
+@using Umbraco.Cms.Core.Models.PublishedContent
+@using Umbraco.Cms.Core.Web
+@using System.Collections.Generic
+@inject IUmbracoContextFactory UmbracoContextFactory
+
+
+<div class="banner">
+    <img src="https://res.cloudinary.com/dv3ucnxsv/image/upload/v1738519456/zzcqb5xw4wtlzsaufxnc.jpg">
+</div>
+<div class="container">
+    <div class="row">
+        <div class="square col-xs-12 col-lg-4">
+            <div class="front">
+                <h3 class="content">ניהול תוכן קל ונוח</h3>
+            </div>
+            <div class="back">
+                <div class="content">אומברקו מציעה ממשק פשוט וידידותי למשתמש, כך שתוכל לנהל את האתר שלך בעצמך ללא צורך בידע טכני.</div>
+            </div>
+        </div>
+        <div class="square col-xs-12 col-lg-4">
+            <div class="front">
+                <h3 class="content">אתר מותאם אישית לצרכים שלך</h3>
+            </div>
+            <div class="back">
+                <div class="content">עם אומברקו, אפשר לבנות אתר שמותאם בדיוק לעסק שלך, החל מעיצוב ייחודי ועד לפונקציונליות שמותאמת לקהל הלקוחות שלך.</div>
+            </div>
+        </div>
+        <div class="square col-xs-12 col-lg-4">
+            <div class="front">
+                <h3 class="content">מהירות וביצועים מעולים</h3>
+            </div>
+            <div class="back">
+                <div class="content">האתרים שנבנים באומברקו מהירים, מאובטחים ומותאמים גם לגלישה במובייל, מה שמשפר את חוויית המשתמש ואת הדירוג בגוגל.</div>
+            </div>
+        </div>
+        <div class="square col-xs-12 col-lg-4">
+            <div class="front">
+                <h3 class="content">יכולת לגדול עם העסק</h3>
+            </div>
+            <div class="back">
+                <div class="content">אומברקו מתאימה לעסקים בכל גודל, כך שגם אם העסק שלך יגדל, האתר יוכל לגדול איתך ולכלול תכונות מתקדמות יותר בעתיד.</div>
+            </div>
+        </div>
+        <div class="square col-xs-12 col-lg-4">
+            <div class="front">
+                <h3 class="content">מומלץ על ידי מומחים</h3>
+            </div>
+            <div class="back">
+                <div class="content">אומברקו היא מערכת ניהול תוכן פופולרית שמשמשת אלפי עסקים ברחבי העולם, מסטארט-אפים ועד חברות גדולות.</div>
+            </div>
+        </div>
+        <div class="square col-xs-12 col-lg-4">
+            <div class="front">
+                <h3 class="content">תמיכה ושירות מותאמים לך</h3>
+            </div>
+            <div class="back">
+                <div class="content">כאשר בונים אתר באומברקו, אתה מקבל שירות וליווי אישי מבוני האתרים, שידאגו שהאתר שלך יפעל בצורה מושלמת.</div>
+            </div>
+        </div>
+    </div>
+    <h2>לקוחות מספרים</h2>
+    <div class="slider-container slick-initialized slick-slider">
+        <button type="button" class="slick-prev slick-arrow" style="">&lt;</button><div class="slick-list draggable">
+            <div class="slick-track" style="opacity: 1; width: 4815px; transform: translate3d(963px, 0px, 0px);">
+                <div class="slick-slide slick-cloned" data-slick-index="-3" id="" aria-hidden="true" tabindex="-1" style="width: 321px;">
+                    <div>
+                        <div style="width: 100%; display: inline-block;">
+                            <div class="card windows" data-row="2">
+                                <img src="https://res.cloudinary.com/dv3ucnxsv/image/upload/v1738519454/qevm3dncklnnvcvsbuy9.jpg" alt="Image 1">
+
+                                <h3>טסט</h3>
+                                טסט וואו
+
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="slick-slide slick-cloned" data-slick-index="-2" id="" aria-hidden="true" tabindex="-1" style="width: 321px;">
+                    <div>
+                        <div style="width: 100%; display: inline-block;">
+                            <div class="card windows" data-row="2">
+                                <img src="https://res.cloudinary.com/dv3ucnxsv/image/upload/v1738519454/qevm3dncklnnvcvsbuy9.jpg" alt="Image 1">
+
+                                <h3>טסט</h3>
+                                טסט וואו
+
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="slick-slide slick-cloned" data-slick-index="-1" id="" aria-hidden="true" tabindex="-1" style="width: 321px;">
+                    <div>
+                        <div style="width: 100%; display: inline-block;">
+                            <div class="card windows" data-row="2">
+                                <img src="https://res.cloudinary.com/dv3ucnxsv/image/upload/v1738519454/qevm3dncklnnvcvsbuy9.jpg" alt="Image 1">
+
+                                <h3>טסט</h3>
+                                טסט וואו
+
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" style="width: 321px;">
+                    <div>
+                        <div style="width: 100%; display: inline-block;">
+                            <div class="card windows" data-row="2">
+                                <img src="https://res.cloudinary.com/dv3ucnxsv/image/upload/v1738519454/qevm3dncklnnvcvsbuy9.jpg" alt="Image 1">
+
+                                <h3>במשפט אחד שווה כל שקל</h3>
+                                <blockquote>אני בניתי אתר כאן והרגשתי שנתנו לי מקסימום שירות בחיוך במינימום מחיר שווה כל שקל</blockquote>
+
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="slick-slide slick-active" data-slick-index="1" aria-hidden="false" style="width: 321px;">
+                    <div>
+                        <div style="width: 100%; display: inline-block;">
+                            <div class="card windows" data-row="2">
+                                <img src="https://res.cloudinary.com/dv3ucnxsv/image/upload/v1738519454/qevm3dncklnnvcvsbuy9.jpg" alt="Image 1">
+
+                                <h3>טסט וואו</h3>
+                                טסט וואו
+
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="slick-slide slick-active" data-slick-index="2" aria-hidden="false" style="width: 321px;">
+                    <div>
+                        <div style="width: 100%; display: inline-block;">
+                            <div class="card windows" data-row="2">
+                                <img src="https://res.cloudinary.com/dv3ucnxsv/image/upload/v1738519456/nuhb1snfjjbbgte1djqx.png" alt="Image 1">
+
+                                <h3>טסט</h3>
+                                טסט וואו
+
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="slick-slide" data-slick-index="3" aria-hidden="true" tabindex="-1" style="width: 321px;">
+                    <div>
+                        <div style="width: 100%; display: inline-block;">
+                            <div class="card windows" data-row="2">
+                                <img src="https://res.cloudinary.com/dv3ucnxsv/image/upload/v1738519454/qevm3dncklnnvcvsbuy9.jpg" alt="Image 1">
+
+                                <h3>טסט</h3>
+                                טסט וואו
+
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="slick-slide" data-slick-index="4" aria-hidden="true" tabindex="-1" style="width: 321px;">
+                    <div>
+                        <div style="width: 100%; display: inline-block;">
+                            <div class="card windows" data-row="2">
+                                <img src="https://res.cloudinary.com/dv3ucnxsv/image/upload/v1738519454/qevm3dncklnnvcvsbuy9.jpg" alt="Image 1">
+
+                                <h3>טסט</h3>
+                                טסט וואו
+
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="slick-slide" data-slick-index="5" aria-hidden="true" tabindex="-1" style="width: 321px;">
+                    <div>
+                        <div style="width: 100%; display: inline-block;">
+                            <div class="card windows" data-row="2">
+                                <img src="https://res.cloudinary.com/dv3ucnxsv/image/upload/v1738519454/qevm3dncklnnvcvsbuy9.jpg" alt="Image 1">
+
+                                <h3>טסט</h3>
+                                טסט וואו
+
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="slick-slide slick-cloned" data-slick-index="6" id="" aria-hidden="true" tabindex="-1" style="width: 321px;">
+                    <div>
+                        <div style="width: 100%; display: inline-block;">
+                            <div class="card windows" data-row="2">
+                                <img src="https://res.cloudinary.com/dv3ucnxsv/image/upload/v1738519454/qevm3dncklnnvcvsbuy9.jpg" alt="Image 1">
+
+                                <h3>במשפט אחד שווה כל שקל</h3>
+                                <blockquote>אני בניתי אתר כאן והרגשתי שנתנו לי מקסימום שירות בחיוך במינימום מחיר שווה כל שקל</blockquote>
+
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="slick-slide slick-cloned" data-slick-index="7" id="" aria-hidden="true" tabindex="-1" style="width: 321px;">
+                    <div>
+                        <div style="width: 100%; display: inline-block;">
+                            <div class="card windows" data-row="2">
+                                <img src="https://res.cloudinary.com/dv3ucnxsv/image/upload/v1738519454/qevm3dncklnnvcvsbuy9.jpg" alt="Image 1">
+
+                                <h3>טסט וואו</h3>
+                                טסט וואו
+
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="slick-slide slick-cloned" data-slick-index="8" id="" aria-hidden="true" tabindex="-1" style="width: 321px;">
+                    <div>
+                        <div style="width: 100%; display: inline-block;">
+                            <div class="card windows" data-row="2">
+                                <img src="https://res.cloudinary.com/dv3ucnxsv/image/upload/v1738519456/nuhb1snfjjbbgte1djqx.png" alt="Image 1">
+
+                                <h3>טסט</h3>
+                                טסט וואו
+
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="slick-slide slick-cloned" data-slick-index="9" id="" aria-hidden="true" tabindex="-1" style="width: 321px;">
+                    <div>
+                        <div style="width: 100%; display: inline-block;">
+                            <div class="card windows" data-row="2">
+                                <img src="https://res.cloudinary.com/dv3ucnxsv/image/upload/v1738519454/qevm3dncklnnvcvsbuy9.jpg" alt="Image 1">
+
+                                <h3>טסט</h3>
+                                טסט וואו
+
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="slick-slide slick-cloned" data-slick-index="10" id="" aria-hidden="true" tabindex="-1" style="width: 321px;">
+                    <div>
+                        <div style="width: 100%; display: inline-block;">
+                            <div class="card windows" data-row="2">
+                                <img src="https://res.cloudinary.com/dv3ucnxsv/image/upload/v1738519454/qevm3dncklnnvcvsbuy9.jpg" alt="Image 1">
+
+                                <h3>טסט</h3>
+                                טסט וואו
+
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="slick-slide slick-cloned" data-slick-index="11" id="" aria-hidden="true" tabindex="-1" style="width: 321px;">
+                    <div>
+                        <div style="width: 100%; display: inline-block;">
+                            <div class="card windows" data-row="2">
+                                <img src="https://res.cloudinary.com/dv3ucnxsv/image/upload/v1738519454/qevm3dncklnnvcvsbuy9.jpg" alt="Image 1">
+
+                                <h3>טסט</h3>
+                                טסט וואו
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><button type="button" class="slick-next slick-arrow" style="">&gt;</button>
+    </div>
+</div>
+
+<div class="marketing-bar">
+    <h2>מדוע לבחור דווקא בנו?</h2>
+    <div class="row container">
+        <div class="item col-3 col-xs-12">
+            <img src="https://res.cloudinary.com/dv3ucnxsv/image/upload/v1738519454/fbpsc2hz4op5zowlarpo.png" alt="תמונה 1">
+            <p>משלמים פחות מקבלים יותר</p>
+        </div>
+        <div class="item col-3 col-xs-12">
+            <img src="https://res.cloudinary.com/dv3ucnxsv/image/upload/v1738519455/vy9rn6urkosccds78rfe.png" alt="תמונה 1">
+            <p>וותק מקצועי</p>
+        </div>
+        <div class="item col-3 col-xs-12">
+            <img src="https://res.cloudinary.com/dv3ucnxsv/image/upload/v1738519451/msifm1voerkrfdtfaluc.png" alt="תמונה 1">
+            <p>ליווי אישי לאורך כל הדרך</p>
+        </div>
+        <div class="item col-3 col-xs-12">
+            <img src="https://res.cloudinary.com/dv3ucnxsv/image/upload/v1738519453/xcnfxjewrnse7yg6u33b.png" alt="תמונה 1">
+            <p>מערכת ניהול תוכן</p>
+        </div>
+
+
+    </div>
+</div>

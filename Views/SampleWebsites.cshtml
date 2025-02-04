@@ -1,0 +1,17 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = "Master.cshtml";
+	 var content = Model.Content as Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent;
+	Umbraco.Cms.Core.Models.Blocks.BlockListModel SampleWebsites = ((Umbraco.Cms.Web.Common.PublishedModels.SampleWebsites)content).List_site;
+
+}
+<div class="row container">
+
+	<a target="_blank" href="https://angular-mongo.onrender.com/" class="col-12 col-md-4 card back_img  SampleWebsite" style="background-image:url(https://res.cloudinary.com/dv3ucnxsv/image/upload/v1738519456/nuhb1snfjjbbgte1djqx.png)">
+
+	</a>
+	<a target="_blank" href="https://yael-ajami.onrender.com/" class="col-12 col-md-4 card back_img  SampleWebsite" style="background-image:url(https://res.cloudinary.com/dv3ucnxsv/image/upload/v1738519452/r4acglymizv1ocxpwvce.png)">
+
+	</a>
+</div>

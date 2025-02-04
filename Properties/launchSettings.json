@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:29456",
+      "sslPort": 44356
+    }
+  },
+  "profiles": {
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "UMBRACO_CONNECTION_STRING": "Data Source=sql.bsite.net\\MSSQL2016,1443;Initial Catalog=yaelajamiumbaco_SampleDB;User ID=yaelajamiumbaco_SampleDB;Password=YaelAjami1234!!;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False",
+        "ASPNETCORE_LOGGING__LOGLEVEL__DEFAULT": "Debug"
+      }
+    },
+    "Umbraco.Web.UI": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "applicationUrl": "https://localhost:44356;http://localhost:29456",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Debug"
+      }
+    }
+  }
+}

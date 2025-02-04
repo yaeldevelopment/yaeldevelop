@@ -1,0 +1,104 @@
+﻿@using Umbraco.Cms.Core.Services
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using Newtonsoft.Json
+@using Umbraco.Cms.Core.Models.Blocks
+@using Umbraco.Cms.Core.Models.PublishedContent
+@using Umbraco.Cms.Core.Web
+@using yael_project.Models
+@inject IUmbracoContextFactory UmbracoContextFactory
+@inject IContentService ContentService
+@inject IMediaService MediaService
+@{
+    Layout = null;
+
+}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="https://res.cloudinary.com/dv3ucnxsv/image/upload/v1738519455/aufdhkro5av0wjnnodzc.jpg">
+
+
+    <title>  יעל עג'מי - מפתחת| Full Stack</title>
+    <link rel="stylesheet" href="/css/main.css" />
+
+    <!-- Add the slick-theme.css if you want default styling -->
+    <link rel="stylesheet" type="text/css" href="~/lib/slick-master/slick/slick.css" />
+    <!-- Add the slick-theme.css if you want default styling -->
+
+    <script src="~/lib/jquery-3.7.1.min.js"></script>
+    <script  src="~/lib/slick-master/slick/slick.min.js"></script>
+    <script src="~/lib/jquery.validate.min.js"></script>
+    <script src="https://cdn.userway.org/widget.js" data-account="PKWT2JYPKI"></script>
+    <script src="~/js/ready.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>אודות | יעל עג'מי - מפתחת Full Stack</title>
+    <style>
+        :root {
+            --color-general: #916666;
+            --color_text: #ffffff;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div id="overlay" class="hide"></div>
+    <div id="success-popup" class="popup success hide windows">
+        <span class="popup-close">×</span>
+        <img src="https://res.cloudinary.com/dv3ucnxsv/image/upload/v1738519452/kk0ogdastbotoskdszrm.png">
+        <div class="rich_text"></div>
+
+    </div>
+    <div id="error-popup" class="popup error hide windows">
+        <span class="popup-close">×</span>
+        <img src="https://res.cloudinary.com/dv3ucnxsv/image/upload/v1738519455/ebfp78r6qraw4z9hylji.png">
+        <div class="rich_text"></div>
+    </div>
+
+    <div id="advertising-popup" style="background-image:url(https://res.cloudinary.com/dv3ucnxsv/image/upload/v1738519458/kcnxldfobotbxwlnqsyo.jpg)" class="popup advertising hide windows">
+        <span class="popup-advertising-close">×</span>
+        <h3 style="color: red;">מפתחת בכירה!</h3>
+        <p style="color: red;">לא תקח לעסק שלך צרו עוד היום 0556722091</p>
+    </div>
+    @Html.Partial("header")
+
+        
+        @RenderBody()
+@Html.Partial("footer")
+    @if (true)
+    { 
+        <script>
+            // הצגת פופאפ אם אין Cookie או אם הוא פג תוקף
+            $(document).ready(function () {
+
+                let id;
+                const popupShown = getCookie("promoPopup");
+                if (!popupShown) {
+                     id=setInterval(() => { showPopup_advertising() }, 8000);
+                }
+            
+                $('.popup-advertising-close').click(function () {
+                    clearInterval(id);
+                    $(this).parent('.popup').fadeOut();
+                    $("#overlay").addClass("hide");
+               
+                });
+              
+              
+  
+            
+                    });
+                function showPopup_advertising() {
+                            $("#advertising-popup").removeClass("hide");
+                            $("#overlay").removeClass("hide");
+                            setCookie("promoPopup", "true", 24);
+                        }
+
+        </script>
+        
+    }
+   
+</body>
