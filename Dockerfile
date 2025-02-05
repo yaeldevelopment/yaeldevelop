@@ -24,10 +24,11 @@ FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine AS base
 RUN apk add --no-cache icu-data-full
 RUN apk add --no-cache musl-dev icu-dev
 RUN apk add --no-cache icu icu-libs
+RUN apt-get update && apt-get install -y libicu-dev
 
 
 # הגדרת משתנה סביבה למניעת בעיות עם תרבויות
-ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false
+ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=0
 ENV DOTNET_SYSTEM_GLOBALIZATION_APP_LOCAL=1
 
 # Set the working directory
