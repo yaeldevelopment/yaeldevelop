@@ -23,6 +23,11 @@ builder.CreateUmbracoBuilder()
     .AddDeliveryApi()
     .AddComposers()
     .Build();
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.Limits.MaxConcurrentConnections = 100;
+    options.Limits.MaxRequestBodySize = 1048576; // 1MB בלבד
+});
 
 var app = builder.Build();
 
