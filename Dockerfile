@@ -23,10 +23,12 @@ COPY . ./
 FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine AS runtime
 
 # התקנת ספריות נוספות שיכולות להיות דרושות
+
+    # התקנת ספריות תלויות לאומברקו
 RUN apk add --no-cache \
-    libintl \
-    icu-libs \
-    zlib
+libc6-compat \
+icu-libs \
+zlib
 # הגדרת תיקיית עבודה
 WORKDIR /app
 
