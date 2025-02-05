@@ -23,13 +23,12 @@ FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine AS base
 # Install necessary packages for Umbraco and .NET
 
 RUN apk add --no-cache musl-dev icu-dev
-RUN apk add --no-cache libc-dev icu-libs
-
+RUN apk add --no-cache icu icu-libs
 
 
 # הגדרת משתנה סביבה למניעת בעיות עם תרבויות
 ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false
-
+ENV DOTNET_SYSTEM_GLOBALIZATION_APP_LOCAL=1
 
 # Set the working directory
 WORKDIR /app
