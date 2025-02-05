@@ -42,10 +42,11 @@ RUN mkdir -p /app/wwwroot/media /app/wwwroot/css /app/wwwroot/js /app/wwwroot/li
 # הגדרת משתני סביבה
 ENV ASPNETCORE_URLS=http://+:8080 \
     DOTNET_GCServer=0 \
-    DOTNET_System_Globalization_Invariant=true
+    DOTNET_System_Globalization_Invariant=false
 
 # חשיפת הפורט
 EXPOSE 8080
+
 
 # הפעלת האפליקציה
 ENTRYPOINT ["dotnet", "yael_project.dll"]
