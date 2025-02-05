@@ -1,24 +1,23 @@
-# שלב הבנייה עם תמונת SDK
+# Use the official .NET SDK image for building the application
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 
-# הגדרת תיקיית עבודה
+# Set the working directory
 WORKDIR /app
 
-# שימוש ב-NuGet cache לשיפור ביצועים
+# Use a custom NuGet package directory to improve build cache usage
 ENV NUGET_PACKAGES=/root/.nuget/packages
 
-# העתקת קבצי הפרויקט ושימוש ב-caching עבור restore
+# Copy only the .csproj files first to restore dependencies
 COPY *.csproj ./ 
-RUN dotnet restore --no-cache
+RUN dotnet restore
 
-# העתקת שאר קבצי הקוד
+# Copy the rest of the application code
 COPY . ./ 
 
-# פרסום עם אופטימיזציות ReadyToRun ו-Trimming
-RUN dotnet publish -c Release -o /app/publish \
-    -p:PublishReadyToRun=true \
-    --self-contained false
+# Publish the application in Release mode
+RUN dotnet publish -c Release -o /app/publish
 
+# Use the official .NET runtime image for running the application
 # שלב הריצה עם תמונה קטנה יותר
 FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine AS runtime
 
@@ -28,25 +27,26 @@ RUN apk add --no-cache \
     icu-libs \
     zlib
 
-# הגדרת תיקיית עבודה
+# Set the working directory
 WORKDIR /app
 
-# העתקת התוצאה מהשלב הקודם
+# Copy the build output from the build stage
 COPY --from=build /app/publish . 
 
-# יצירת ספריות הדרושות והגדרת הרשאות
+# Create necessary directories for Umbraco and ensure permissions
 RUN mkdir -p /app/wwwroot/media /app/wwwroot/css /app/wwwroot/js /app/wwwroot/lib /app/App_Data \
     && mkdir -p /app/Logs /app/Temp /app/Umbraco /app/Config \
     && chmod -R 777 /app/wwwroot /app/App_Data /app/Logs /app/Temp /app/Umbraco /app/Config
 
-# הגדרת משתני סביבה
-ENV ASPNETCORE_URLS=http://+:8080 \
-    DOTNET_GCServer=0 \
-    DOTNET_System_Globalization_Invariant=false
+# Set the ASP.NET Core URLs environment variable
+ENV ASPNETCORE_URLS=http://+:8080
 
-# חשיפת הפורט
+# Expose ports
 EXPOSE 8080
+RUN apt-get update && apt-get install -y \
+    libc6-dev \
+    libicu-dev
 
-
-# הפעלת האפליקציה
+# Start the application
 ENTRYPOINT ["dotnet", "yael_project.dll"]
+
