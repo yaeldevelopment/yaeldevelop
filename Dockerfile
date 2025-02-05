@@ -15,10 +15,10 @@ RUN dotnet restore --no-cache
 COPY . ./
 
 # פרסום עם אופטימיזציות ReadyToRun ו-Trimming
-RUN dotnet publish -c Release -o /app/publish \
-    -p:PublishTrimmed=true -p:PublishReadyToRun=true \
-    --self-contained false
 
+    RUN dotnet publish -c Release -o /app/publish \
+    -p:PublishReadyToRun=true \
+    --self-contained false
 # שלב הריצה עם תמונה קטנה יותר
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 
