@@ -1,35 +1,20 @@
-# השתמש בתמונה הרשמית של .NET SDK לבניית האפליקציה
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+# השתמש בתמונה של .NET Runtime מבוססת Alpine (קטנה יותר)
+FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine AS runtime
 
 # קביעת תיקיית העבודה
 WORKDIR /app
 
-# שימוש בתיקיית NuGet מותאמת לשיפור השימוש במטמון של הבנייה
-ENV NUGET_PACKAGES=/root/.nuget/packages
+# הגדרת משתנה סביבה למניעת בעיות עם תרבויות
+ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false
 
-# העתקת קבצי .csproj ראשונים כדי לשחזר את התלויות
-COPY *.csproj ./ 
-RUN dotnet restore
-
-# העתקת שאר הקוד של האפליקציה
-COPY . ./ 
-
-# פרסום האפליקציה במצב Release
-RUN dotnet publish -c Release -o /app/publish
-
-# השתמש בתמונה הרשמית של .NET Runtime להפעלת האפליקציה
-FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine AS runtime
-
-# התקנת תלויות עבור Alpine
+# התקנת חבילות נדרשות עבור Umbraco
 RUN apk add --no-cache \
     libc6-compat \
     icu-libs \
-    zlib
+    zlib \
+    && rm -rf /var/cache/apk/*
 
-# קביעת תיקיית העבודה
-WORKDIR /app
-
-# העתקת תוצרי הבנייה משלב הבנייה
+# העתקת קבצי הבנייה מהשלב הקודם
 COPY --from=build /app/publish . 
 
 # יצירת ספריות נדרשות עבור Umbraco והגדרת הרשאות
