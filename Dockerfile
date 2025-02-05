@@ -48,7 +48,7 @@ ENV ASPNETCORE_URLS=http://+:8080
 # Expose ports
 EXPOSE 8080
 # התקן את החבילות הדרושות
-RUN apk add --no-cache libc6-dev libicu-dev
+
 
 
 
