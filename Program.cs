@@ -55,4 +55,4 @@ app.UseUmbraco()
         u.UseWebsiteEndpoints();
     });
 //await app.RunAsync();
-await app.RunAsync("http://0.0.0.0:8080");
+app.Run("http://0.0.0.0:8080");
