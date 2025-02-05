@@ -21,7 +21,7 @@ RUN dotnet publish -c Release -o /app/publish
 FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine AS base
 
 # Install necessary packages for Umbraco and .NET
-
+RUN apk add --no-cache icu-data-full
 RUN apk add --no-cache musl-dev icu-dev
 RUN apk add --no-cache icu icu-libs
 
