@@ -19,8 +19,13 @@ RUN dotnet publish -c Release -o /app/publish
 
 # Use the official .NET runtime image for running the application
 # שלב הריצה עם תמונה קטנה יותר
+
 FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine AS runtime
 
+# Install dependencies for Alpine
+RUN apk add --no-cache libc6-dev libicu-dev
+
+# Your other commands here
 # התקנת ספריות נוספות שיכולות להיות דרושות
 RUN apk add --no-cache \
     libc6-compat \
