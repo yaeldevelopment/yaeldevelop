@@ -5,7 +5,7 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
 # העתקת קבצי הקוד לאפליקציה
-COPY ["yael_project/yael_project.csproj", "yael_project/"]
+COPY ["./yael_project.csproj", "yael_project/"]
 
 # שחזור תלויות
 RUN dotnet restore "yael_project/yael_project.csproj"
