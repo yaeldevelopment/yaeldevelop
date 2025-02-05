@@ -20,8 +20,13 @@ COPY . ./
     -p:PublishReadyToRun=true \
     --self-contained false
 # שלב הריצה עם תמונה קטנה יותר
-FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine As runtime
+FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine AS runtime
 
+# התקנת ספריות נוספות שיכולות להיות דרושות
+RUN apk add --no-cache \
+    libintl \
+    icu-libs \
+    zlib
 # הגדרת תיקיית עבודה
 WORKDIR /app
 
