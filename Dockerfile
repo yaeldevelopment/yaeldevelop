@@ -18,7 +18,8 @@ COPY . ./
 RUN dotnet publish -c Release -o /app/publish
 
 # Use the official .NET runtime image for running the application
-FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine AS runtime
+FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine AS base   
+# השתמש בתמונה מבית
 
 
 # הגדרת משתנה סביבה למניעת בעיות עם תרבויות
@@ -41,9 +42,10 @@ ENV ASPNETCORE_URLS=http://+:8080
 
 # Expose ports
 EXPOSE 8080
-RUN apt-get update && apt-get install -y \
-    libc6-dev \
-    libicu-dev
+# התקן את החבילות הדרושות
+RUN apk add --no-cache libc6-dev libicu-dev
+
+
 
 # Start the application
 ENTRYPOINT ["dotnet", "yael_project.dll"]
