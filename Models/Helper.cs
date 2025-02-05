@@ -153,7 +153,7 @@ namespace yael_project.Models
             try
             {
 
-                MailMessage message = new MailMessage(new MailAddress(Environment.GetEnvironmentVariable("send_mail")), new MailAddress(GetSettingValue(contentService, "contact_mail")));
+                MailMessage message = new MailMessage(new MailAddress(Environment.GetEnvironmentVariable("send_mail")), new MailAddress("y0556722091@gmail.com"));
 
 
                 message.Subject = "פנית לקוח";
