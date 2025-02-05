@@ -18,9 +18,10 @@ COPY . ./
 RUN dotnet publish -c Release -o /app/publish
 
 # Use the official .NET runtime image for running the application
-FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine AS base   
-# השתמש בתמונה מבית
-RUN apk add --no-cache musl-dev libc6-dev
+FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine AS base
+
+# Install necessary packages for Umbraco and .NET
+RUN apk add --no-cache musl-dev icu-dev libc-dev icu-libs
 RUN apk add --no-cache libc-dev icu-libs
 
 
