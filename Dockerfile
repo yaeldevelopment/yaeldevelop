@@ -1,14 +1,14 @@
-# שימוש בתמונה עדכנית ויציבה יותר
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 
 WORKDIR /app
 
 # הגדרת מיקום ספציפי לחבילות NuGet
-ENV NUGET_PACKAGES=/app/packages
+ENV NUGET_PACKAGES=/root/.nuget/fallbackpackages
 
 # העתקת קובצי הפרויקט בלבד
-COPY *.csproj ./
-RUN dotnet restore --no-cache --force-evaluate --packages /app/packages
+COPY yael_project.csproj ./
+RUN dotnet nuget locals all --clear
+RUN dotnet restore --packages $NUGET_PACKAGES --disable-parallel
 
 # העתקת שאר הקבצים
 COPY . ./
