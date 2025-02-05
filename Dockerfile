@@ -20,6 +20,7 @@ RUN dotnet publish -c Release -o /app/publish
 # Use the official .NET runtime image for running the application
 FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine AS base   
 # השתמש בתמונה מבית
+RUN apk add --no-cache musl-dev icu-dev
 
 
 # הגדרת משתנה סביבה למניעת בעיות עם תרבויות
