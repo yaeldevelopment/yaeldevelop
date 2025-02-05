@@ -18,13 +18,8 @@ COPY . ./
 RUN dotnet publish -c Release -o /app/publish
 
 # Use the official .NET runtime image for running the application
-FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine AS base
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 
-# Install necessary packages for Umbraco and .NET
-RUN apk add --no-cache icu-data-full
-RUN apk add --no-cache musl-dev icu-dev
-RUN apk add --no-cache icu icu-libs
-RUN apt-get update && apt-get install -y libicu-dev
 
 
 # הגדרת משתנה סביבה למניעת בעיות עם תרבויות
