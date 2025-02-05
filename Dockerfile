@@ -1,57 +1,47 @@
-# Use the official .NET SDK image for building the application
+# השתמש בתמונה הרשמית של .NET SDK לבניית האפליקציה
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 
-# Set the working directory
+# קביעת תיקיית העבודה
 WORKDIR /app
 
-# Use a custom NuGet package directory to improve build cache usage
+# שימוש בתיקיית NuGet מותאמת לשיפור השימוש במטמון של הבנייה
 ENV NUGET_PACKAGES=/root/.nuget/packages
 
-# Copy only the .csproj files first to restore dependencies
+# העתקת קבצי .csproj ראשונים כדי לשחזר את התלויות
 COPY *.csproj ./ 
 RUN dotnet restore
 
-# Copy the rest of the application code
+# העתקת שאר הקוד של האפליקציה
 COPY . ./ 
 
-# Publish the application in Release mode
+# פרסום האפליקציה במצב Release
 RUN dotnet publish -c Release -o /app/publish
 
-# Use the official .NET runtime image for running the application
-# שלב הריצה עם תמונה קטנה יותר
-
+# השתמש בתמונה הרשמית של .NET Runtime להפעלת האפליקציה
 FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine AS runtime
 
-# Install dependencies for Alpine
-RUN apk add --no-cache libc6-dev libicu-dev
-
-# Your other commands here
-# התקנת ספריות נוספות שיכולות להיות דרושות
+# התקנת תלויות עבור Alpine
 RUN apk add --no-cache \
     libc6-compat \
     icu-libs \
     zlib
 
-# Set the working directory
+# קביעת תיקיית העבודה
 WORKDIR /app
 
-# Copy the build output from the build stage
+# העתקת תוצרי הבנייה משלב הבנייה
 COPY --from=build /app/publish . 
 
-# Create necessary directories for Umbraco and ensure permissions
+# יצירת ספריות נדרשות עבור Umbraco והגדרת הרשאות
 RUN mkdir -p /app/wwwroot/media /app/wwwroot/css /app/wwwroot/js /app/wwwroot/lib /app/App_Data \
     && mkdir -p /app/Logs /app/Temp /app/Umbraco /app/Config \
     && chmod -R 777 /app/wwwroot /app/App_Data /app/Logs /app/Temp /app/Umbraco /app/Config
 
-# Set the ASP.NET Core URLs environment variable
+# קביעת משתנה הסביבה של ASP.NET Core URLs
 ENV ASPNETCORE_URLS=http://+:8080
 
-# Expose ports
+# חשיפת פורטים
 EXPOSE 8080
-RUN apt-get update && apt-get install -y \
-    libc6-dev \
-    libicu-dev
 
-# Start the application
+# הפעלת האפליקציה
 ENTRYPOINT ["dotnet", "yael_project.dll"]
-
