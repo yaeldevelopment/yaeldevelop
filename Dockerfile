@@ -37,6 +37,12 @@ ENV ASPNETCORE_URLS=http://+:8080
 
 # Expose ports
 EXPOSE 8080
+ENV DOTNET_gcServer 1
+ENV DOTNET_GCHeapHardLimit 400000000
+ENV DOTNET_GCHeapHardLimitPercent 80
+ENV DOTNET_GCConserveMemory 1
+ENV DOTNET_SYSTEM_NET_HTTP_SOCKETSHTTPHANDLER_HTTP2UNENCRYPTEDSUPPORT false
+
 RUN apt-get update && apt-get install -y \
     libc6-dev \
     libicu-dev
