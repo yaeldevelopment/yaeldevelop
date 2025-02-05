@@ -20,7 +20,7 @@ COPY . ./
     -p:PublishReadyToRun=true \
     --self-contained false
 # שלב הריצה עם תמונה קטנה יותר
-FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
+FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine As runtime
 
 # הגדרת תיקיית עבודה
 WORKDIR /app
