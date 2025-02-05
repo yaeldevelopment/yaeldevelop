@@ -1,51 +1,50 @@
-# שלב הבנייה - שימוש בתמונה מבוססת SDK כדי לבנות את האפליקציה
+# Use the official .NET SDK image for building the application
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 
-# קביעת תיקיית העבודה
-WORKDIR /src
+# Set the working directory
+WORKDIR /app
 
-# העתקת קבצי הקוד לאפליקציה
-COPY ["./yael_project.csproj", "yael_project/"]
+# Use a custom NuGet package directory to improve build cache usage
+ENV NUGET_PACKAGES=/root/.nuget/packages
 
-# שחזור תלויות
-RUN dotnet restore "yael_project/yael_project.csproj"
+# Copy only the .csproj files first to restore dependencies
+COPY *.csproj ./ 
+RUN dotnet restore
 
-# העתקת כל הקבצים הנותרים
-COPY . .
+# Copy the rest of the application code
+COPY . ./ 
 
-# בניית האפליקציה
-WORKDIR "/src/yael_project"
-RUN dotnet publish "yael_project.csproj" -c Release -o /app/publish
+# Publish the application in Release mode
+RUN dotnet publish -c Release -o /app/publish
 
-# שלב הריצה - מבוסס Alpine
+# Use the official .NET runtime image for running the application
 FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine AS runtime
 
-# קביעת תיקיית העבודה
-WORKDIR /app
 
 # הגדרת משתנה סביבה למניעת בעיות עם תרבויות
 ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false
 
-# התקנת חבילות נדרשות עבור Umbraco
-RUN apk add --no-cache \
-    libc6-compat \
-    icu-libs \
-    zlib \
-    && rm -rf /var/cache/apk/*
 
-# העתקת קבצי הבנייה מהשלב הקודם
-COPY --from=build /app/publish .
+# Set the working directory
+WORKDIR /app
 
-# יצירת ספריות נדרשות עבור Umbraco והגדרת הרשאות
+# Copy the build output from the build stage
+COPY --from=build /app/publish . 
+
+# Create necessary directories for Umbraco and ensure permissions
 RUN mkdir -p /app/wwwroot/media /app/wwwroot/css /app/wwwroot/js /app/wwwroot/lib /app/App_Data \
     && mkdir -p /app/Logs /app/Temp /app/Umbraco /app/Config \
     && chmod -R 777 /app/wwwroot /app/App_Data /app/Logs /app/Temp /app/Umbraco /app/Config
 
-# קביעת משתנה הסביבה של ASP.NET Core URLs
+# Set the ASP.NET Core URLs environment variable
 ENV ASPNETCORE_URLS=http://+:8080
 
-# חשיפת פורטים
+# Expose ports
 EXPOSE 8080
+RUN apt-get update && apt-get install -y \
+    libc6-dev \
+    libicu-dev
 
-# הפעלת האפליקציה
+# Start the application
 ENTRYPOINT ["dotnet", "yael_project.dll"]
+
