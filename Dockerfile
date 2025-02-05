@@ -8,32 +8,31 @@ WORKDIR /app
 ENV NUGET_PACKAGES=/root/.nuget/packages
 
 # העתקת קבצי הפרויקט ושימוש ב-caching עבור restore
-COPY *.csproj ./
+COPY *.csproj ./ 
 RUN dotnet restore --no-cache
 
 # העתקת שאר קבצי הקוד
-COPY . ./
+COPY . ./ 
 
 # פרסום עם אופטימיזציות ReadyToRun ו-Trimming
-
-    RUN dotnet publish -c Release -o /app/publish \
+RUN dotnet publish -c Release -o /app/publish \
     -p:PublishReadyToRun=true \
     --self-contained false
+
 # שלב הריצה עם תמונה קטנה יותר
 FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine AS runtime
 
 # התקנת ספריות נוספות שיכולות להיות דרושות
-
-    # התקנת ספריות תלויות לאומברקו
 RUN apk add --no-cache \
-libc6-compat \
-icu-libs \
-zlib
+    libc6-compat \
+    icu-libs \
+    zlib
+
 # הגדרת תיקיית עבודה
 WORKDIR /app
 
 # העתקת התוצאה מהשלב הקודם
-COPY --from=build /app/publish .
+COPY --from=build /app/publish . 
 
 # יצירת ספריות הדרושות והגדרת הרשאות
 RUN mkdir -p /app/wwwroot/media /app/wwwroot/css /app/wwwroot/js /app/wwwroot/lib /app/App_Data \
@@ -47,10 +46,6 @@ ENV ASPNETCORE_URLS=http://+:8080 \
 
 # חשיפת הפורט
 EXPOSE 8080
-
-# הפחתת ספריות מיותרות
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    libc6-dev libicu-dev && rm -rf /var/lib/apt/lists/*
 
 # הפעלת האפליקציה
 ENTRYPOINT ["dotnet", "yael_project.dll"]
